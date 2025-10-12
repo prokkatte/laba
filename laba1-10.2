@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 int main() {
-    char C;
-    printf("Введите символ: ");
-    scanf("%c", &C);
-    printf("Предыдущий: %c, Следующий: %c\n", C - 1, C + 1);
+    int N;
+    printf("Введите число N (32 ≤ N ≤ 126): ");
+    scanf("%d", &N);
+    printf("Символ: %c\n", (char)N);
     return 0;
 }
