@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+   char str[100];
+    
+    // Считываем строку
+    printf("Введите строку: ");
+    fgets(str, sizeof(str), stdin);
+    
+    // Убираем символ новой строки, если он есть
+    size_t len = strlen(str);
+    if (len > 0 && str[len - 1] == '\n') {
+        str[len - 1] = '\0';
+        len--;
+    }
+    
+    // Проверяем, что строка не пустая
+    if (len > 0) {
+        printf("Код первого символа '%c': %d\n", str[0], str[0]);
+        printf("Код последнего символа '%c': %d\n", str[len - 1], str[len - 1]);
+    } else {
+        printf("Строка пустая!\n");
+        }
+    
+    return 0;
+}
