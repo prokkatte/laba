@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char S[100];
+    
+    printf("Введите строку S: ");
+    fgets(S, sizeof(S), stdin);
+    
+    // Удаляем символ новой строки, если он есть
+    S[strcspn(S, "\n")] = '\0';
+    
+    int len = strlen(S);
+    
+    printf("Результат: ");
+    for (int i = 0; i < len; i++) {
+        printf("%c", S[i]);
+        if (i < len - 1) {
+            printf(" ");
+        }
+    }
+    printf("\n");
+    
+    return 0;
+}
