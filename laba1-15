@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int count_lowercase_letters(const char *str) {
+    int count = 0;
+    
+    for (int i = 0; str[i] != '\0'; i++) {
+        unsigned char c = str[i];
+        
+        // Строчные латинские буквы: a-z
+        if (c >= 'a' && c <= 'z') {
+            count++;
+        }
+        // Строчные русские буквы: а-я
+        else if (c >= 0xB0 && c <= 0xBF && c != 0xB8) {
+            count++;
+        }
+    }
+    
+    return count;
+}
+
+int main() {
+    char str[256];
+    
+    printf("Введите строку: ");
+    fgets(str, sizeof(str), stdin);
+    
+    int result = count_lowercase_letters(str);
+    printf("Количество строчных латинских и русских букв: %d\n", result);
+    
+    return 0;
+}
